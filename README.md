@@ -1,6 +1,6 @@
 # NLP
 
-## BERT
+## Natural Language Processing BERT Model
 
 ### Transformer
 #### What's the one thing to do?
@@ -123,6 +123,87 @@
 
 ![](/assets/Image(27).png)
 
+#### Expression of positional information
+In self-attention each word is weighted taking into account the whole sequence, so its occurrence position doesn't have much effect on the results, which is equivalent to it doesn't matter where it's placed, but that's a bit inconsistent with reality. We want the model to have additional knowledge about the position.
+
+![](/assets/Image(28).png)
+#### Add and Normalize
+ - Normalization
+
+![](/assets/Image(29).png)
+ - Connections: basic residual connections
+
+![](/assets/Image(31).png)
+
+![](/assets/Image(30).png)
+
+#### Decoder
+ - Attention calculation is different
+ - The MASK mechanism has been added
+
+![](/assets/Image(32).png)
+
+#### Final Output Results
+ - Derive the final prediction
+ - The loss function cross-entropy can be
+
+![](/assets/Image(33).png)
+
+#### Overall Sorting
+ - Self-Attention
+ - Multi-Head
+ - Multi-layer stacking, positional encoding
+ - Parallel accelerated training
+
+![](/assets/Image(34).png)
+#### Effective demonstration
+![](/assets/Image(35).png)
+
+### BERT
+#### What is the difference between the word vectors trained by BERT?
+ - In word2vec, the vectors corresponding to the same words are fixed once they are trained.
+ - But in different scenarios
+will 'Transformer' mean the same thing in different scenarios?
+ - Both are called transformers.
+
+![](/assets/Image(36).png)
+![](/assets/Image(39).png)
+#### How do you explain that name?
+ - Bidirectional Encoder Representations from Transformers Encoder
+ - To be clear, it is the encoder part of the transformer.
+ - Doesn't need labels, it can be trained with precisions.
+
+![](/assets/Image(40).png)
+#### How to train BERT
+ - Method 1: 15% of the words in a sentence are randomly masked off
+ - Leave it to the model to predict what the masked words are.
+ - There are too many possibilities for words.
+ - If the BERT training vectors are good, then the classification will be OK.
+
+![](/assets/Image(37).png)
+ - Method 2: Predict whether two sentences should be joined together or not
+ - [seq]: the connective before the two sentences, [cls]: the vector indicating the classification to be done
+
+![](/assets/Image(41).png)
+![](/assets/Image(38).png)
+
+#### How to use BERT
+ - Isn't it necessary to train the representation of the vectors first, and then train the desired model?
+ - The required tasks can be incorporated into BERT, and the two are trained together!
+ - Classification of tasks:
+
+![](/assets/Image(43).png)
+![](/assets/Image(42).png)
+
+ - For reading comprehension questions, the input is the text and the question. The output is a comprehension answer location.
+
+![](/assets/Image(44).png) 
+![](/assets/Image(45).png)
+
+ - How to design a network? The start and end positions of the answers need to be calculated separately.
+
+![](/assets/Image(47).png)
+![](/assets/Image(46).png)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
