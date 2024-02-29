@@ -122,6 +122,7 @@
  - The calculations are the same.
 
 ![](/assets/Image(27).png)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
