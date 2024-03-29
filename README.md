@@ -1,5 +1,59 @@
 # NLP
 
+## Hugging Face
+
+### What exactly is natural language processing supposed to do?
+
+ - Classification, Machine Translation, Sentiment Analysis, Intelligent Customer Service, Summarization & Reading Comprehension, etc...
+
+ - The learning of our language skills comes from the little things in life, a conversation, a reading is learning.
+ - So we need to train NLP models just to get a final output?
+
+### How do you come to develop learning skills in modeling?
+ - Do we need specific tasks and labels? Does every conversation we have correspond to a standard answer? It doesn't.
+ - It is more important to train reading skills, learning skills, comprehension skills, then just give the model reading material.
+ - The so-called reading material is our human text data, novels, news, movies, etc. are all possible.
+ - So, what we need to model now is language comprehension, not categorization kind of specialized skills.
+
+### Journeyman in NLP
+ - Early NLP was simpler, with no trained learning ability at all, just domain-specific tasks.
+ - Nowadays, NLP can be simply divided into two major families: the BERT family and the GPT family.
+
+### What NLP really spells?
+ - What about spelling out the network structure, the loss function, or various training techniques?
+ - From the current NLP more core model, the main spell is the amount of data and the number of parameters.
+ - The models that have been scrubbed, as well as the cooler ones, have horrendous amounts of training data and parameters.
+ - What can we do? Do we have to train models too? Do we have to use huge amounts of data too?
+
+### How do we get started with NLP?
+ - Hand it over to Transformer.
+
+### I'd like to welcome our protagonist today.
+
+ - Huggingface is the best of all worlds, including all the core models of NLP today.
+ - To fine-tune our own task, we simply process our data and continue to train the model.
+
+### It's not just a toolkit, it's a community, and a stage for NLP bigwigs.
+
+ - More and more academic bigwigs are using it to open source models to publicize papers as well as research results.
+
+### Stories about it
+ - Rumor has it that 30 part-time development and algorithm engineers have leveraged a $2 billion market cap.
+
+ - In fact, this can not be separated from the power of open source, the AI field is so in need of a stage and community.
+
+ - Time makes the hero, in time for Transformer to explode in the AI field, the first to eat the crab!
+
+ - BERT and GPT Sweep NLP, Huggingface Reaps the Benefits, Community-Driven Technology Advancement.
+
+### Two birds with one stone, divide and conquer.
+
+ - Ai is not only academically driven but also engineered on the ground.
+
+ - Academics come to provide models for the community to demonstrate their status and competence in the field.
+
+ - The project is to complete their own tasks through the pre-trained models provided by the community, and the efficiency of the project on the ground is very high.
+
 ## Natural Language Processing BERT Model
 
 ### Transformer
