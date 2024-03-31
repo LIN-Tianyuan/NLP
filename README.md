@@ -54,10 +54,8 @@
 
  - The project is to complete their own tasks through the pre-trained models provided by the community, and the efficiency of the project on the ground is very high.
 
-## Natural Language Processing BERT Model
-
-### Transformer
-#### What's the one thing to do?
+## Transformer
+### What's the one thing to do?
  - The basic composition is still the Seq2Seq network, which is common in machine translation modeling.
 
  - The inputs and outputs are intuitive, and the core architecture is the network design in the middle.
@@ -65,7 +63,7 @@
 
 ![](/assets/Image(1).png)
 
-#### Traditional RNN networks
+### Traditional RNN networks
  - What's wrong with the calculations?
 
 
@@ -77,14 +75,14 @@
 
 ![](/assets/Image(3).png)
 
-#### Traditional word2vec
+### Traditional word2vec
  - What's wrong with representing vectors?
  - How to represent the same word in different contexts
  - Pre-trained vectors are permanent
 
 ![](/assets/Image(4).png)
 
-#### Overall structure
+### Overall structure
  - How is the input coded?
  - What is the output result?
  - Purpose of Attention?
@@ -92,19 +90,19 @@
 
 ![](/assets/Image(5).png)
 
-#### What does Attention mean?
+### What does Attention mean?
  - What is your attention for the input data?
  - How can you get the computer to pay attention to this valuable information?
 
 ![](/assets/Image(6).png)
 ![](/assets/Image(7).png)
  
-#### What is self-attention?
+### What is self-attention?
 
 ![](/assets/Image(8).png)
 ![](/assets/Image(9).png)
 
-#### How is self-attention calculated?
+### How is self-attention calculated?
  - Inputs are encoded to get vectors
  - Want to get the relationship of the context of the current word, can be treated as a weighting
  - Construct three matrices to query the relationship of the current word with other words and the expression of the feature vectors respectively.
@@ -135,12 +133,12 @@
 
 ![](/assets/Image(13).png)
 
-#### Attention calculation for each word
+### Attention calculation for each word
  - The Q for each word calculates a score with each K in the entire sequence and then reassigns features based on the score
 
 ![](/assets/Image(15).png)
 
-#### The overall Attention calculation process
+### The overall Attention calculation process
 
  - Each word's Q will calculate a score with each K.
  - After Softmax, the whole weighted result is obtained.
@@ -150,7 +148,7 @@
 ![](/assets/Image(16).png)
 ![](/assets/Image(17).png)
 
-#### Multi-headed mechanisms
+### Multi-headed mechanisms
  - A set of q,k,v yields a set of feature expressions for the current word
  - Can a filter in a similar convolutional neural network extract multiple features?
 
@@ -165,23 +163,23 @@
 ![](/assets/Image(23).png)
 ![](/assets/Image(24).png)
 
-#### Multi-headed result
+### Multi-headed result
  - Different attention results
  - Different feature vector representations obtained
 
 ![](/assets/Image(26).png)
 ![](/assets/Image(25).png)
-#### Stacked multilayer
+### Stacked multilayer
  - One layer is not enough
  - The calculations are the same.
 
 ![](/assets/Image(27).png)
 
-#### Expression of positional information
+### Expression of positional information
 In self-attention each word is weighted taking into account the whole sequence, so its occurrence position doesn't have much effect on the results, which is equivalent to it doesn't matter where it's placed, but that's a bit inconsistent with reality. We want the model to have additional knowledge about the position.
 
 ![](/assets/Image(28).png)
-#### Add and Normalize
+### Add and Normalize
  - Normalization
 
 ![](/assets/Image(29).png)
@@ -191,30 +189,30 @@ In self-attention each word is weighted taking into account the whole sequence, 
 
 ![](/assets/Image(30).png)
 
-#### Decoder
+### Decoder
  - Attention calculation is different
  - The MASK mechanism has been added
 
 ![](/assets/Image(32).png)
 
-#### Final Output Results
+### Final Output Results
  - Derive the final prediction
  - The loss function cross-entropy can be
 
 ![](/assets/Image(33).png)
 
-#### Overall Sorting
+### Overall Sorting
  - Self-Attention
  - Multi-Head
  - Multi-layer stacking, positional encoding
  - Parallel accelerated training
 
 ![](/assets/Image(34).png)
-#### Effective demonstration
+### Effective demonstration
 ![](/assets/Image(35).png)
 
-### BERT
-#### What is the difference between the word vectors trained by BERT?
+## BERT
+### What is the difference between the word vectors trained by BERT?
  - In word2vec, the vectors corresponding to the same words are fixed once they are trained.
  - But in different scenarios
 will 'Transformer' mean the same thing in different scenarios?
@@ -222,13 +220,13 @@ will 'Transformer' mean the same thing in different scenarios?
 
 ![](/assets/Image(36).png)
 ![](/assets/Image(39).png)
-#### How do you explain that name?
+### How do you explain that name?
  - Bidirectional Encoder Representations from Transformers Encoder
  - To be clear, it is the encoder part of the transformer.
  - Doesn't need labels, it can be trained with precisions.
 
 ![](/assets/Image(40).png)
-#### How to train BERT
+### How to train BERT
  - Method 1: 15% of the words in a sentence are randomly masked off
  - Leave it to the model to predict what the masked words are.
  - There are too many possibilities for words.
@@ -241,7 +239,7 @@ will 'Transformer' mean the same thing in different scenarios?
 ![](/assets/Image(41).png)
 ![](/assets/Image(38).png)
 
-#### How to use BERT
+### How to use BERT
  - Isn't it necessary to train the representation of the vectors first, and then train the desired model?
  - The required tasks can be incorporated into BERT, and the two are trained together!
  - Classification of tasks:
@@ -258,6 +256,76 @@ will 'Transformer' mean the same thing in different scenarios?
 
 ![](/assets/Image(47).png)
 ![](/assets/Image(46).png)
+
+## ALBERT
+### Problem to be solved (A Lite BERT)
+ - Since BERT NLP has been emphasizing one thing, to be effective, the model must be large.
+ - But if the model is very large, the weight parameters will be very much, the training is a big problem (video memory can not be loaded)
+ - The training speed is also a thing, now the big models have to be in units of months, the speed is very slow!
+ - Can we simplify BERT to make it faster and easier to train?
+(Embedding in Transformer accounts for 20% of the parameters, Attetntion accounts for 80%)
+
+### Do more hidden layer features necessarily lead to better results?
+
+![](/assets/Image(48).png)
+![](/assets/Image(49).png)
+
+### Few letters
+ - E: word embedding size, that is, the dimension of the vector obtained after the first Embedding layer.
+
+ - H: the size of the hidden layer, e.g. 768 dimensional vectors after attentions.
+
+ - V: the number of words in the corpus, for example, there are 20000 words in our dictionary.
+
+### Factorization of the embedding vector parameterization
+
+ - Through an intermediary, one layer is converted to two layers, but the number of parameters can be drastically reduced.
+ - The number of parameters: (V × H) reduced to ( V × E + E × H )
+ - At this point, if H >> E, we have achieved our goal (the smaller E may be less effective)
+ - But Embedding layer is only the first step, Attention how to simplify is the main event!
+ - The effect of different values of E on the results, smaller E affects the results, but not much.
+
+![](/assets/Image(50).png)
+### Cross-layer parameter sharing
+ - There are many ways to share, ALBERT chose to share all of them, FFN and ATTENTION's all share.
+![](/assets/Image(51).png)
+### Stories the experiment also tells us
+ - The more layers, the better. So far, yes.
+![](/assets/Image(52).png)
+ - The larger the hidden features, the better. So far, yes.
+![](/assets/Image(53).png)
+
+## RoBERTa
+### Robustly optimized BERT approach
+ - This basically means that the training process can be optimized.
+ - The most important thing is how to design masks in a language model: dynamic masks are better than static ones.
+ - Dynamic masks are definitely better than static ones, which is the core of this paper.
+ - After canceling the NSP task (Next Sentence Prediction), the result is better.
+![](/assets/Image(54).png)
+### Optimal point
+ - BatchSize is basically what everyone recognizes as well.
+ - More datasets were used and trained for a longer period of time, improving the results a bit.
+ - Split the word way to do a little improvement, so that the English split more detailed.
+![](/assets/Image(55).png)
+![](/assets/Image(56).png)
+### RoBERTa-wwm
+ - wwm is whole word mask.
+ - This is quite important, 1.I like to eat XXX authentic grilled cold noodles; 2.I like to eat Haxbin authentic grilled cold noodles
+ - The wwm is definitely more important for Chinese scene training.
+![](/assets/Image(57).png)
+## DistilBERT
+### A distilled version of BERT: smaller,faster, cheaper and lighter
+ - Dreaming back to 2019, back in the day, people noticed the trend of models getting bigger and bigger.
+ - In academia, it's always been about violence and miracles.
+ - What should we do in engineering? It has to be smaller.
+ - Both small effect must be guaranteed, how to do it?
+ ![](/assets/Image(58).png)
+ - Almost 40% fewer parameters, mainly because of the fast prediction speed.
+ - The effect remains 97% after distillation, but it's been slimmed down considerably.
+![](/assets/Image(59).png)
+![](/assets/Image(60).png)
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
