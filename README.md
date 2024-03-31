@@ -325,6 +325,128 @@ will 'Transformer' mean the same thing in different scenarios?
 ![](/assets/Image(59).png)
 ![](/assets/Image(60).png)
 
+## OPENAI
+### They're up to something.
+ - Expected to generate 45 billion words per day.
+ - Looks like they're generating a hundred million books an hour.
+ - Will what we see, what we read, what we think still be true?
+ - And that's just GPT-3 in 2022.
+（"10 times more words per day in 2022 than in 2021.")
+![](/assets/Image(61).png)
+### This guy is really good. With Microsoft, nothing is a problem.
+ - Openai is based in Iowa, in a data center invested by Microsoft.
+![](/assets/Image(62).png)
+### GPT VS Human
+ - GPT-3 is already smarter than human? Then there will be a revolt.
+ - There are also some problems and issues with bias.
+ - The language model is learning us, but it can't tell the difference between good and bad words.
+ - The Stanford 2022 AI Index has already pointed out that NLP is highly biased.
+![](/assets/Image(63).png)
+### Everything can be GPT
+ - What's going on? We're gonna lose our jobs?
+![](/assets/Image(64).png)
+### But the world is more than just the GPT.
+ - The GPT is really just the tip of the iceberg as well, with a major model coming out every four days in 2022.
+![](/assets/Image(65).png) 
+### You're probably wondering what it takes to train a model like this at home.
+ - Training a language model of this caliber is something you can only see from a distance.
+ - As you can imagine, we may not be able to afford the photovoltaic fee.
+ - But this is just GPT-3.
+ ![](/assets/Image(66).png)
+## GPT
+### Moments in History
+ - June 2018 GPT-1: ~5GB text, 117 million parameters
+ - February 2019 GPT-2: ~40GB text, 1.5 billion references
+ - May 2020 GPT-3: ~45TB text, 175 billion participants
+ - Rumor has it that GPT-3 electricity costs $12 million dollars for a 72-page paper
+## GPT-1
+### Bringing you back to NLP in 2018
+ - GPT is short for "Generative Pre-Training".
+ - In 2018, NLP can be called the fight of the gods, BERT and GPT are in no particular order, and it is estimated that these two will unify the world if they join forces.
+ - Who is more difficult to train between BERT and GPT? Definitely GPT, it is going to play a big game
+ - Complete the blanks (BERT is already in context); Predict the future (GPT predicts what will happen later)
+
+### The loss function is the prediction of the next word, and the overall architecture is the transformer decoder.
+![](/assets/Image(67).png)
+
+### All downstream tasks require fine-tuning (retraining)
+![](/assets/Image(68).png)
+
+## GPT-2
+### Adapt to changes with no changes
+ - Zero-shot is starting to play up here, and I simply don't train or fine-tune the downstream tasks.
+ - There are many kinds of downstream tasks, how can you let the model know what you want to do without training?
+ - You hint at it, you tell the model what it needs to accomplish by giving it some hints.
+ - To summarize, it's bigger, and the downstream tasks don't need to be fine-tuned.
+![](/assets/Image(69).png)
+
+### Sampling strategy related
+ - Autoregressive modeling is going to make predictions, but will it get stuck in a dead end loop?
+ - Idiom solitaire: one gets one, one gets one, one gets one, one gets one, one gets one, one gets one.
+ - So we have to hope that the model has some variety, like writing an essay, not just using then.
+ - I ate today, then played a game, then ate, then played basketball, then played a game again.
+
+### Temperature
+ - Temperature is the probability of redesigning the prediction results.
+ - A default temperature of 1 means it is still softmax.
+ - Higher temperature means more diversity (rain or shine).
+ - Lower temperature means you want to get the most accurate one.
+![](/assets/Image(70).png)
+
+### Top k vs. Top p
+ - Can the model sample outrageous results (it's unlikely)?
+ - So TOPK and TOPP are to eliminate those particularly outrageous results.
+ - TOPK, such as probability ranking after the selection of the first 10, that after the value of all zeroes.
+ - TOPP is similar to the CUMSUM calculated cumulative, generally cumulative to 0.9 or 0.95.
+
+## GPT3
+### No fine-tuning.
+ - In 2020, the boss of the company said that we don't open source because it's good for human beings and we are responsible for you.
+ - Although the source code is not provided, but provides a paid API to fine-tune.
+
+### It is oriented to human programming.
+That is to say, the data of GPT-3 training is all-encompassing, and it knows everything from the top to the bottom.
+
+![](/assets/Image(71).png)
+
+### 3 core downstream task approaches
+
+It's really about input examples there are a few, make a sample.
+![](/assets/Image(72).png)
+![](/assets/Image(73).png)
+![](/assets/Image(74).png)
+
+### Comparison of the 3 ways
+ - None of the three have updated the model
+ - Definitely FEW works better
+ - But the problem is that the API is more expensive
+ - The input sequence length is longer
+![](/assets/Image(75).png)
+
+### Network Structure
+ - The network structure is nothing special, but the 3.2M batch is a bit hot.
+ ![](/assets/Image(76).png)
+
+### Preparing the data
+ - The dataset has to be large and clean, there is a lot of work to be done.
+ - Quality judgment, the crawled web pages, classification task to see if the quality is OK or not.
+ - Filtering web pages to eliminate those of low importance (these algorithms are not easy to design).
+ - Also include the training data of previous versions, integrate a piece of it and start training.
+
+## CODEX
+### Evaluating Large Language Models Trained on Code
+ - Retraining (not fine-tuning) with GPT-3 models.
+ - Geared towards GITHUB programming, GPT-3 really got this one right this time around.
+![](/assets/Image(77).png)
+![](/assets/Image(78).png)
+
+ - It's hard to explain, just look at the DEMO:
+https://openai.com/blog/openai-codex/#spacegame
+ - The training data is GITHUB, which is equivalent to combining document annotations with code.
+ - Input annotations or documentation to predict how the code will be implemented, to CODEX-oriented programming?
+ - In fact, it's telling us one thing, GPT can be personalized.
+
+
 
 ## License
 
